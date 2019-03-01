@@ -1,10 +1,10 @@
 {
   "name": "skeleton-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "preferGlobal": true,
   "bin": {
-    "skeleton": "index"
+    "skeleton": "index.js"
   },
   "main": "index.js",
   "scripts": {

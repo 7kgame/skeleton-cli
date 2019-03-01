@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const download = require('download-git-repo')
 const program = require('commander')
 const path = require('path')

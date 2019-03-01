@@ -1,7 +1,11 @@
 {
-  "name": "@qkgame/skeleton-cli",
-  "version": "0.0.3-alpha",
+  "name": "skeleton-cli",
+  "version": "1.0.0",
   "description": "",
+  "preferGlobal": true,
+  "bin": {
+    "skeleton": "index"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +22,23 @@
   "bugs": {
     "url": "https://github.com/7kgame/skeleton-cli/issues"
   },
-  "homepage": "https://github.com/7kgame/skeleton-cli#readme"
+  "homepage": "https://github.com/7kgame/skeleton-cli#readme",
+  "dependencies": {
+    "async": "^2.6.2",
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "consolidate": "^0.15.1",
+    "download-git-repo": "^1.1.0",
+    "fs-extra": "^7.0.1",
+    "handlebars": "^4.1.0",
+    "inquirer": "^6.2.2",
+    "metalsmith": "^2.3.0",
+    "minimatch": "^3.0.4",
+    "multimatch": "^3.0.0",
+    "ora": "^3.1.0",
+    "read-metadata": "^1.0.0",
+    "tildify": "^1.2.0",
+    "user-home": "^2.0.0",
+    "validate-npm-package-name": "^3.0.0"
+  }
 }

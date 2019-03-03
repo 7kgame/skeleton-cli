@@ -1,11 +1,14 @@
 ## 简介
   skeleton-cli 是一个通过项目模版来创建项目的构建工具，借鉴了[vue-cli@2.x](https://github.com/vuejs/vue-cli/tree/v2.9.3)的实现。
   
-  主要逻辑是通过项目模版的复制和修改，来搭建新的项目工程，避免了项目创建时各种重复配置的繁琐。  
-  **项目复制**，依赖[download-git-repo](https://github.com/flipxfx/download-git-repo)，从GitHub | GitLab | Bitbucket | \*.zip下载和解压项目；同时skeleton-cli也支持指定本地模版项目。  
-  **项目修改**，依赖模版引擎[handlebars](https://github.com/wycats/handlebars.js)和命令行交互式工具[inquirer](https://github.com/SBoudrias/Inquirer.js)，实现了以命令行交互式方式修改项目文件的工程构建流程。  
-  
-  skeleton-cli 依赖nodejs环境，支持各类编程语言的项目搭建。
+一般来讲，一个项目的搭建基本会包含以下几个方面的设计： 
+- 目录结构
+- 依赖管理
+- 环境配置（测试、编码风格等）
+
+在一个团队中，如果这些工作每次都需要手工一步步执行，成本将非常高。
+
+通过模版工程来创建新项目是一个解决方案，skeleton-cli 是该方案的nodejs版实现，支持各类编程语言的项目搭建。
 
 ## 安装
 ```
@@ -28,9 +31,21 @@ skeleton $local/template/path my-project
 skeleton https://github.com/7kgame/tpl-node-web/archive/master.zip my-project
 ```
 
+## skeleton-cli 执行流程
+#### 1、下载模版工程
+依赖[download-git-repo](https://github.com/flipxfx/download-git-repo)，从GitHub | GitLab | Bitbucket | \*.zip下载和解压项目；同时skeleton-cli也支持指定本地模版项目。  
+#### 2、编辑项目基本信息
+命令行交互式工具[inquirer](https://github.com/SBoudrias/Inquirer.js)
+#### 3、修改项目
+模版引擎[ejs](https://github.com/mde/ejs)
+#### 4、执行初始化脚本
+
 ## 项目模版结构说明
 #### meta.js
 
 #### template
 #### init.js
+
+## TODOS
+
 

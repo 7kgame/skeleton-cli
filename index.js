@@ -7,14 +7,12 @@ const fs = require('fs-extra')
 const os = require('os')
 const ora = require('ora')
 const home = require('user-home')
-const tildify = require('tildify')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
 const logger = require('./lib/logger')
 const getTemplate = require('./lib/template')
 const project = require('./lib/project')
-const postRun = require('./lib/post')
 
 program
   .usage('<template-name> [project-name]')
@@ -45,10 +43,8 @@ let { projectPath, projectName, templatePath } = project.create(root, program.ar
 getTemplate(root, program.args[0], templatePath).then(()=> {
   project.parseTemplate(projectPath, projectName, templatePath)
     .then( res => {
-      postRun(projectName, projectPath, templatePath, function () {
-        fs.removeSync(templatePath)
-        logger.success('project "' + projectName + '" created.')
-      })
+      fs.removeSync(templatePath)
+      logger.success('project "' + projectName + '" created.')
     })
 }).catch((err) => {
   project.remove(projectPath)

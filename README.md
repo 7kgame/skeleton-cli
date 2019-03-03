@@ -33,7 +33,8 @@ skeleton https://github.com/7kgame/tpl-node-web/archive/master.zip my-project
 
 ## skeleton-cli 执行流程
 #### 1、下载模版工程
-依赖[download-git-repo](https://github.com/flipxfx/download-git-repo)，从GitHub | GitLab | Bitbucket | \*.zip下载和解压项目；同时skeleton-cli也支持指定本地模版项目。  
+依赖[download-git-repo](https://github.com/flipxfx/download-git-repo)，从GitHub | GitLab | Bitbucket | \*.zip下载和解压项目；  
+同时skeleton-cli也支持指定本地模版项目。  
 #### 2、编辑项目基本信息
 命令行交互式工具[inquirer](https://github.com/SBoudrias/Inquirer.js)
 #### 3、修改项目

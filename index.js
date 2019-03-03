@@ -37,6 +37,7 @@ function help () {
 help()
 
 const root = process.cwd()
+let success = false
 
 let { projectPath, projectName, templatePath } = project.create(root, program.args[1])
 
@@ -44,9 +45,24 @@ getTemplate(root, program.args[0], templatePath).then(()=> {
   project.parseTemplate(projectPath, projectName, templatePath)
     .then( res => {
       fs.removeSync(templatePath)
+      success = true
       logger.success('project "' + projectName + '" created.')
     })
 }).catch((err) => {
   project.remove(projectPath)
   logger.fatal(err)
 })
+
+const exitHandler = function (err) {
+  if (success) {
+    return
+  }
+  project.remove(projectPath)
+  logger.fatal(err)
+}
+
+process.on('uncaughtException', exitHandler)
+process.on('exit', exitHandler)
+process.on('SIGINT', exitHandler)
+process.on('SIGUSR1', exitHandler)
+process.on('SIGUSR2', exitHandler)
